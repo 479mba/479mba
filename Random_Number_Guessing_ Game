@@ -1,0 +1,27 @@
+import random
+
+min_num = int(input("Enter Lower Limit: "))
+max_num = int(input("Enter Upper Limit: "))
+
+max_chances = 5
+chances = 0
+
+random_number = random.randint(min_num, max_num)
+print("You will have to Choose a number between " + str(min_num) + " and " + str(max_num) + ", In under " + str(max_chances) + " try's")
+
+while True: #this while loop should keep going till i guess the number Unless the player gets to the number of max_chances then the game ends 
+    guess = int(input("Enter Your Guess: "))
+
+    chances += 1
+    
+    if guess == random_number:
+        print("You Won!")
+        break
+    elif guess > random_number:
+        print("Your Guess is higher than the correct number. Try Again!")
+    elif guess < random_number:
+        print("Your Guess is lower than the correct number. Try Again!")
+
+    if chances == max_chances:
+        print("Sorry! You ran out of chances! Better luck next time!")
+        break
